@@ -5,7 +5,7 @@
 <a href="https://trendshift.io/repositories/10421" target="_blank">
   <img
     src="https://trendshift.io/api/badge/repositories/10421"
-    alt="ccbikai/Sink | Trendshift"
+    alt="miantiao-me/Sink | Trendshift"
     width="250"
     height="55"
   />
@@ -35,7 +35,7 @@
   />
 </a>
 
-[<img src="https://devin.ai/assets/deepwiki-badge.png" alt="DeepWiki" height="20"/>](https://deepwiki.com/ccbikai/Sink)
+[<img src="https://devin.ai/assets/deepwiki-badge.png" alt="DeepWiki" height="20"/>](https://deepwiki.com/miantiao-me/Sink)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-F69652?style=flat&logo=cloudflare&logoColor=white)
 ![Nuxt](https://img.shields.io/badge/Nuxt-00DC82?style=flat&logo=nuxtdotjs&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
@@ -47,12 +47,19 @@
 
 ## ✨ Features
 
-- **URL Shortening:** Compress your URLs to their minimal length.
-- **Analytics:** Monitor link analytics and gather insightful statistics.
-- **Serverless:** Deploy without the need for traditional servers.
-- **Customizable Slug:** Support for personalized slugs and case sensitivity.
+- **🔗 URL Shortening:** Compress your URLs to their minimal length.
+- **📈 Analytics:** Monitor link analytics and gather insightful statistics.
+- **☁️ Serverless:** Deploy without the need for traditional servers.
+- **🎨 Customizable Slug:** Support for personalized slugs and case sensitivity.
 - **🪄 AI Slug:** Leverage AI to generate slugs.
-- **Link Expiration:** Set expiration dates for your links.
+- **⏰ Link Expiration:** Set expiration dates for your links.
+- **📱 Device Routing:** Redirect iOS/Android users to different URLs (App Store links).
+- **🖼️ OpenGraph Preview:** Custom social media previews with title, description, and image.
+- **📊 Real-time Analytics:** Live 3D globe visualization and real-time event logs.
+- **🔲 QR Code:** Generate QR codes for your short links.
+- **📦 Import/Export:** Bulk migration via JSON/CSV files.
+- **🌍 Multi-language:** Full i18n support for the dashboard.
+- **🌙 Dark Mode:** Light, dark, and system theme support.
 
 ## 🪧 Demo
 
@@ -83,6 +90,7 @@ Site Token: SinkCool
 We welcome your contributions and PRs.
 
 - [x] Browser Extension - [Sink Tool](https://github.com/zhuzhuyule/sink-extension)
+- [x] Chrome Extension - [Sink Quick Shorten](https://chromewebstore.google.com/detail/sink-quick-shorten/emlojomjpenjgkaphajcokijobpkejih)
 - [x] Raycast Extension - [Raycast-Sink](https://github.com/foru17/raycast-sink)
 - [x] Apple Shortcuts - [Sink Shortcuts](https://s.search1api.com/sink001)
 - [x] iOS App - [Sink](https://apps.apple.com/app/id6745417598)
@@ -105,6 +113,14 @@ We currently support deployment to [Cloudflare Workers](./docs/deployment/worker
 
 [API Docs](./docs/api.md)
 
+## 🤖 AI Skills
+
+Install Sink AI Skills for enhanced coding assistance:
+
+```bash
+npx skills add miantiao-me/sink
+```
+
 ## 🧰 MCP
 
 We currently do not support native MCP Server, but we have OpenAPI documentation, and you can use the following method to support MCP.
@@ -124,7 +140,7 @@ We currently do not support native MCP Server, but we have OpenAPI documentation
       "env": {
         "OPENAPI_SPEC_URL": "https://sink.cool/_docs/openapi.json",
         "API_KEY": "SinkCool",
-        "TOOL_WHITELIST": "/api/link/create"
+        "TOOL_WHITELIST": "/api/link"
       }
     }
   }
@@ -140,8 +156,9 @@ We currently do not support native MCP Server, but we have OpenAPI documentation
 1. [**Cloudflare**](https://www.cloudflare.com/)
 2. [**NuxtHub**](https://hub.nuxt.com/)
 3. [**Astroship**](https://astroship.web3templates.com/)
+4. [**Tailark**](https://tailark.com/)
 
 ## ☕ Sponsor
 
-1. [Follow Me on X(Twitter)](https://404.li/kai).
-2. [Become a sponsor to on GitHub](https://github.com/sponsors/ccbikai).
+1. [Follow Me on X(Twitter)](https://404.li/x).
+2. [Become a sponsor to on GitHub](https://github.com/sponsors/miantiao-me).
