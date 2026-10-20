@@ -51,8 +51,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "sink", // Override with DEPLOY_D1_DATABASE_NAME (default: sink)
-      "database_id": "ef964055-65bf-4b78-b109-ac9c9290ae62", // Upstream local/dev placeholder; set DEPLOY_D1_DATABASE_ID before production deployment.
+      "database_name": "sink-scuff-cc", // Override with DEPLOY_D1_DATABASE_NAME for generated deployment config.
+      "database_id": "826b373c-ad18-4a53-81da-3642a24a8e26", // Preserve the existing scuff.cc D1 database for Git-integrated builds.
       "migrations_dir": "drizzle"
     }
   ],

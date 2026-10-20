@@ -14,7 +14,7 @@ Preserve the existing bindings and runtime secrets. Never delete the original KV
 - `AI`: existing Workers AI binding
 - `ASSETS`: generated production assets
 
-The D1 ID in tracked `wrangler.jsonc` is an upstream local/development placeholder. Production deployments must generate `wrangler.deploy.jsonc` with the variables below. Do not deploy the placeholder directly.
+The tracked `wrangler.jsonc` preserves the real scuff.cc resource IDs so Git-integrated builds work directly. Keep these IDs when syncing upstream; never replace them with upstream placeholders. Manual deployments may also generate `wrangler.deploy.jsonc` using the variables below.
 
 ## Build and deploy
 
@@ -38,7 +38,7 @@ pnpm build
 pnpm deploy:worker
 ```
 
-The deploy command applies D1 schema migrations before uploading the Worker. The existing daily backup schedule remains configured in `wrangler.jsonc`.
+The manual deploy command applies D1 schema migrations before uploading the Worker. Workers Builds production uses `pnpm exec wrangler d1 migrations apply DB --remote && pnpm exec wrangler deploy`; preview branches use `npx wrangler versions upload` without changing production or migrating its database. The existing daily backup schedule remains configured in `wrangler.jsonc`.
 
 ## Tests
 
