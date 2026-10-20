@@ -1,5 +1,4 @@
-import { LinkSchema } from '#shared/schemas/link'
-import { z } from 'zod'
+import { DeleteLinkSchema } from '#shared/schemas/link'
 
 defineRouteMeta({
   openAPI: {
@@ -22,19 +21,8 @@ defineRouteMeta({
   },
 })
 
-const DeleteSchema = z.object({
-  slug: LinkSchema.shape.slug.removeDefault().min(1),
-})
-
 export default eventHandler(async (event) => {
-  const { previewMode } = useRuntimeConfig(event).public
-  if (previewMode) {
-    throw createError({
-      status: 403,
-      statusText: 'Preview mode cannot delete links.',
-    })
-  }
-
-  const { slug } = await readValidatedBody(event, DeleteSchema.parse)
-  await deleteLink(event, slug)
+  assertLinkWritesAllowed(event, 'delete')
+  const { slug } = await readValidatedBody(event, DeleteLinkSchema.parse)
+  await removeLink(event, slug)
 })

@@ -12,6 +12,9 @@
     "nodejs_compat"
   ],
   "keep_vars": true,
+  "vars": {
+    "NUXT_DATASET": "sink_events"
+  },
   "upload_source_maps": true,
   "observability": {
     "logs": {
@@ -25,24 +28,41 @@
     "binding": "AI",
     "remote": true
   },
+  // Values marked with DEPLOY_* below are placeholders for local/dev.
+  // CLI deploy (pnpm deploy:worker / deploy:config) rewrites them into gitignored wrangler.deploy.jsonc.
+  // Keep the existing scuff.cc KV namespace and analytics dataset when configuring production.
   "analytics_engine_datasets": [
     {
+      "binding": "ANALYTICS",
+      "dataset": "sink_events" // Set DEPLOY_ANALYTICS_DATASET and NUXT_DATASET to sink_events in production.
+    },
+    {
       "binding": "sink_engine",
-      "dataset": "sink_events"
+      "dataset": "sink_events" // Preserve the existing binding as an alias for the same dataset.
     }
   ],
   "kv_namespaces": [
     {
       "binding": "KV",
-    "preview_id": "82489f4c8d4148a68569d7d41fc25450",
-    "id": "82489f4c8d4148a68569d7d41fc25450" // IMPORTANT: Change this to your KV namespace ID
+      "preview_id": "82489f4c8d4148a68569d7d41fc25450", // Override with DEPLOY_KV_PREVIEW_NAMESPACE_ID (falls back to DEPLOY_KV_NAMESPACE_ID)
+      "id": "82489f4c8d4148a68569d7d41fc25450" // Set DEPLOY_KV_NAMESPACE_ID to this existing namespace.
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sink-scuff-cc", // Override with DEPLOY_D1_DATABASE_NAME for generated deployment config.
+      "database_id": "826b373c-ad18-4a53-81da-3642a24a8e26", // Preserve the existing scuff.cc D1 database for Git-integrated builds.
+      "migrations_dir": "drizzle"
     }
   ],
   "r2_buckets": [
     {
       "binding": "R2",
+      // preview_bucket_name: DEPLOY_R2_PREVIEW_BUCKET_NAME (falls back to DEPLOY_R2_BUCKET_NAME)
+      // omit DEPLOY_R2_BUCKET_NAME to drop R2 from generated deploy config
       "preview_bucket_name": "sink",
-      "bucket_name": "sink" // IMPORTANT: Change this to your R2 bucket name, or create one with `wrangler r2 bucket create sink`
+      "bucket_name": "sink" // Override with DEPLOY_R2_BUCKET_NAME
     }
   ],
   "triggers": {
